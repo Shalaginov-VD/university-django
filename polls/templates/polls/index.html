@@ -1,0 +1,9 @@
+{% if students %}
+    <ul>
+    {% for student in students %}
+        <li>{{ student.last_name }} {{ student.first_name }} {{ student.middle_name }} - {{ student.group }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

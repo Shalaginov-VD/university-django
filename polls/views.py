@@ -1,7 +1,7 @@
 from django.shortcuts import render
-
-from django.http import HttpResponse
-
+from .models import Student
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    student_list = Student.objects.all()
+    context = {'students': student_list}
+    return render(request, 'polls/index.html', context)

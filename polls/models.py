@@ -5,7 +5,7 @@ class Group(models.Model):
     def __str__(self):
         return self.group_name
 
-class Stundent(models.Model):
+class Student(models.Model):
     last_name = models.CharField(max_length=30)
     first_name = models.CharField(max_length=30)
     middle_name = models.CharField(max_length=30)
