@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о студенте</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Информация о студенте</h1>
+        <p>ФИО: {{ student.last_name }} {{ student.first_name }} {{ student.middle_name }}</p>
+        <p>Группа: {{ student.group }}</p>
+        <p>Староста: {% if student.is_headman %} Да {% else %} Нет {% endif %}</p>
+        <a href="{% url 'student_list' %}" class="btn btn-primary">Назад</a>
+    </div>
+</body>
+</html>

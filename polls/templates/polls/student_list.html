@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список студентов</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Список студентов</h1>
+        <ul class="list-group">
+            {% for student in students %}
+            <li class="list-group-item">
+                <a href="{% url 'student_detail' student.id %}">
+                    {{ student.last_name }} {{ student.first_name }} {{ student.middle_name }} - {{ student.group }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

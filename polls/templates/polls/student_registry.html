@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация студента</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Регистрация студента</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="group-form">
+                <label for="last_name">Фамилия</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+            </div>
+            <div class="group-form">
+                <label for="first_name">Имя</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+            <div class="group-form">
+                <label for="middle_name">Отчество</label>
+                <input type="text" class="form-control" id="middle_name" name="middle_name" required>
+            </div>
+            <div class="group-form">
+                <label for="group">Группа</label>
+                <select name="group" id="group" class="form-control">
+                    {% for group in groups %}
+                        <option value="{{ group.id }}">{{ group.group_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="is_headman" name="is_headman">
+                <label for="is_headman" class="form-check-label">Староста</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Зарегистрировать</button>
+        </form>
+    </div>
+</body>
+</html>

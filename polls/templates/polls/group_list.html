@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список групп</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Список академических групп</h1>
+        <ul class="list-group">
+            {% for group in groups %}
+            <li class="list-group-item">
+                <a href="{% url 'group_detail' group.id %}">
+                    {{ group.group_name }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

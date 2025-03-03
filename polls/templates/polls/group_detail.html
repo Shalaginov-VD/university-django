@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о группе</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Информация о группе: {{ group.group_name }}</h1>
+        <h2>Студенты:</h2>
+        <ul class="list-group">
+            {% for student in students %}
+            <li class="list-group-item {% if student.is_headman %}list-group-item-warning{% endif %}">
+                {{ student.last_name }} {{ student.first_name }} {{ student.middle_name }}
+                {% if student.is_headman %} (Староста){% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'group_list' %}" class="btn btn-primary">Назад</a>
+    </div>
+</body>
+</html>
